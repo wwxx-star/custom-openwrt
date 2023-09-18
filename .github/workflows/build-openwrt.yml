@@ -41,7 +41,7 @@ env:
 jobs:
           
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-lastest
     steps: 
 
     - name: Checkout
@@ -65,7 +65,7 @@ jobs:
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
-        ln -sf /workdir/xwrt $GITHUB_WORKSPACE/openwrt
+        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
     - name: Update Git tag
       run: |
         cd openwrt
@@ -73,9 +73,9 @@ jobs:
         git fetch origin --tags
     - name: Load custom feeds
       run: |
-        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF xwrt/feeds.conf.default
+        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH
-        cd xwrt
+        cd opoenwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
     - name: Update feeds
@@ -121,7 +121,7 @@ jobs:
     - name: Download package
       id: package
       run: |
-        cd xwrt
+        cd openwrt
         make defconfig
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
