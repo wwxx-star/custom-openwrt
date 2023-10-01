@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build G-dock
+name: Build Gdock openwrt
 
 on:
   repository_dispatch:
@@ -41,7 +41,7 @@ env:
 jobs:
           
   build:
-    runs-on: self-hosted
+    runs-on: selfhost
     steps: 
 
     - name: Checkout
@@ -71,7 +71,7 @@ jobs:
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH
-        cd openwrt
+        cd opoenwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
     - name: Update feeds
@@ -119,8 +119,7 @@ jobs:
       run: |
         cd openwrt
         make defconfig
-        make download 
-        ionice -c 3 chrt --idle 0 nice -n19 make -j5
+        make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
