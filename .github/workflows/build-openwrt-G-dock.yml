@@ -46,6 +46,9 @@ jobs:
 
     - name: Checkout
       uses: actions/checkout@v4
+      with:
+          lfs: true
+          token: ${{ secrets.ACCESS_TOKEN }}
       
     - name: Initialization environment
       env:
