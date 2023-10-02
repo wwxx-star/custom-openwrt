@@ -47,7 +47,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
       with:
-          lfs: true
           token: ${{ secrets.ACTIONS_TRIGGER_PAT }}
       
     - name: Initialization environment
