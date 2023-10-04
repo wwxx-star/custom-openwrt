@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build TP-Link 841 V9
+name: Build Tp-Link841 openwrt
 
 on:
   repository_dispatch:
@@ -20,7 +20,7 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/InBomBi/openwrt-build
+  REPO_URL: https://github.com/InBomBi/openwrt-build.git
   REPO_BRANCH: main
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config-tplink841
@@ -46,7 +46,7 @@ jobs:
 
     - name: Checkout
       uses: actions/checkout@main
-     
+            
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
@@ -60,16 +60,15 @@ jobs:
         sudo rm -R /workdir
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
-   
+        
     - name: Clone source code
       working-directory: /workdir
       run: |
         df -hT $PWD
-        git pull $REPO_URL -b $REPO_BRANCH openwrt
+        git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         
     - name: Load custom feeds
-      working-directory: /workdir
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH
@@ -98,11 +97,11 @@ jobs:
                   if [ ! "$(echo $check |wc -c)" = "69" ];
                   then echo ".config invalid, setting default for mt7620";
                        rm -rf openwrt/.config;
-                       cp xwrt/feeds/x/rom/lede/config.ramips-mt7620 openwrt/.config;
+                       cp openwrt/feeds/x/rom/lede/config.ramips-mt7620 openwrt/.config;
                   else echo "naive check passed";
                   fi
-             else cp xwrt/feeds/x/rom/lede/config.ramips-mt7620 openwrt/.config;
-                  echo "use default .config for mt7620 in xwrt, url not set and .config in repo don't exist";
+             else cp openwrt/feeds/x/rom/lede/config.ramips-mt7620 openwrt/.config;
+                  echo "use default .config for mt7620 in openwrt, url not set and .config in repo don't exist";
              fi
         fi
         chmod +x $DIY_P2_SH
