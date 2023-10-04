@@ -23,7 +23,7 @@ env:
   REPO_URL: https://github.com/InBomBi/openwrt-build.git
   REPO_BRANCH: main
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: .config-miwifi-r3
+  CONFIG_FILE: .config-3p
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   #by default used .config for build from repo
@@ -41,7 +41,7 @@ env:
 jobs:
           
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-lastest
     steps: 
 
     - name: Checkout
@@ -57,7 +57,6 @@ jobs:
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
-        sudo rm -R /workdir
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
         
