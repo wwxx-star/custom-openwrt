@@ -41,10 +41,10 @@ env:
 jobs:
           
   build:
-    runs-on: ubuntu-lastest
+    runs-on: self-hosted
 
     - name: Checkout
-      uses: actions/checkout@main
+      uses: actions/checkout@v4
       
     - name: Initialization environment
       env:
@@ -60,10 +60,11 @@ jobs:
         sudo chown $USER:$GROUPS /workdir
 
     - name: Clone source code
-      working-directory: /workdir
+      working-directory: /workdir/openwrt
       run: |
         df -hT $PWD
-        git clone $REPO_URL -b $REPO_BRANCH openwrt
+#        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        git pull -all
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         
     - name: Load custom feeds
