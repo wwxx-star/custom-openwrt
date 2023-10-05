@@ -41,7 +41,7 @@ env:
 jobs:
           
   build:
-    runs-on: ubuntu-lastest
+    runs-on: self-hosted
     steps: 
 
     - name: Checkout
