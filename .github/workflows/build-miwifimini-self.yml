@@ -46,7 +46,11 @@ jobs:
 
     - name: Checkout
       uses: actions/checkout@v4
-      
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+        cache: 'npm'  
+        
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
@@ -120,7 +124,7 @@ jobs:
       run: |
         cd openwrt
         make defconfig
-        make download -j8
+        make download -j5
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
