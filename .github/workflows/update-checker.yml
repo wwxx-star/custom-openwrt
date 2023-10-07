@@ -22,15 +22,15 @@ on:
 
 jobs:
   check:
-    runs-on: ubuntu-lastest
+    runs-on: self-hosted
 
     steps:
 
-    - name: Get Commit Hash
-      id: getHash
-      run: |
-        git clone --depth 1 $REPO_URL -b $REPO_BRANCH .
-        echo "::set-output name=commitHash::$(git rev-parse HEAD)"
+#    - name: Get Commit Hash
+#      id: getHash
+#      run: |
+#        git clone --depth 1 $REPO_URL -b $REPO_BRANCH .
+#        echo "::set-output name=commitHash::$(git rev-parse HEAD)"
 
     - name: Compare Commit Hash
       id: cacheHash
