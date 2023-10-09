@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Self Hosted TP-LINK 841 openwrt
+name: build xiaomi miwifi mini openwrt
 
 on:
   repository_dispatch:
@@ -46,9 +46,9 @@ jobs:
 
     - name: Checkout
       uses: actions/checkout@v4
-    - uses: actions/setup-node@v2
+    - uses: actions/setup-node@v3
       with:
-        node-version: '16'
+        node-version: '18'
         cache: 'npm'  
         
     - name: Initialization environment
@@ -68,7 +68,7 @@ jobs:
       working-directory: /workdir/openwrt
       run: |
         df -hT $PWD
- #       git clone $REPO_URL -b $REPO_BRANCH openwrt
+#       git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         git pull -all
                       
