@@ -46,11 +46,7 @@ jobs:
       
     - name: Checkout
       uses: actions/checkout@main
-    - uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-        cache: 'npm'
-
+    
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
