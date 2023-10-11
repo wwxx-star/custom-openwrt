@@ -41,12 +41,16 @@ env:
 jobs:
           
   build:
-    runs-on: ubuntu-lastest
+    runs-on: self-hosted
     steps: 
-
+      
     - name: Checkout
       uses: actions/checkout@main
-      
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
@@ -57,16 +61,15 @@ jobs:
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
-        sudo mkdir -p /workdir
-        sudo chown $USER:$GROUPS /workdir
-        
+        #sudo mkdir -p /workdir
+        #sudo chown $USER:$GROUPS /workdir 
     - name: Clone source code
       working-directory: /workdir
       run: |
         df -hT $PWD
-        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        #git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        
+        git pull --all
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
