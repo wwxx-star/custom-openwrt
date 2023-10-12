@@ -65,7 +65,7 @@ jobs:
       run: |
         df -hT $PWD
         cd openwrt
-        git pull --all
+        git fetch origin
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         
     - name: Load custom feeds
