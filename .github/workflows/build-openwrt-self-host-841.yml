@@ -64,6 +64,7 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
+        cd openwrt
         git pull --all
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         
