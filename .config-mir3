@@ -165,8 +165,8 @@ CONFIG_TARGET_ramips_mt7620=y
 # CONFIG_TARGET_ramips_mt7620_DEVICE_wavlink_wl-wn579x3 is not set
 # CONFIG_TARGET_ramips_mt7620_DEVICE_wevo_air-duo is not set
 # CONFIG_TARGET_ramips_mt7620_DEVICE_wrtnode_wrtnode is not set
-CONFIG_TARGET_ramips_mt7620_DEVICE_xiaomi_miwifi-mini=y
-# CONFIG_TARGET_ramips_mt7620_DEVICE_xiaomi_miwifi-r3 is not set
+# CONFIG_TARGET_ramips_mt7620_DEVICE_xiaomi_miwifi-mini is not set
+CONFIG_TARGET_ramips_mt7620_DEVICE_xiaomi_miwifi-r3=y
 # CONFIG_TARGET_ramips_mt7620_DEVICE_youku_x2 is not set
 # CONFIG_TARGET_ramips_mt7620_DEVICE_youku_yk-l1 is not set
 # CONFIG_TARGET_ramips_mt7620_DEVICE_youku_yk-l1c is not set
@@ -303,8 +303,8 @@ CONFIG_TARGET_ramips_mt7620_DEVICE_xiaomi_miwifi-mini=y
 # CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_wavlink_wl-wn579x3 is not set
 # CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_wevo_air-duo is not set
 # CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_wrtnode_wrtnode is not set
-# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_xiaomi_miwifi-r3 is not set
-CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_xiaomi_miwifi-mini=y
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_xiaomi_miwifi-r3=y
+# CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_xiaomi_miwifi-mini is not set
 # CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_youku_x2 is not set
 # CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_youku_yk-l1 is not set
 # CONFIG_TARGET_DEVICE_ramips_mt7620_DEVICE_youku_yk-l1c is not set
@@ -331,8 +331,8 @@ CONFIG_HAS_DEVICES=y
 CONFIG_TARGET_BOARD="ramips"
 CONFIG_TARGET_SUBTARGET="mt7620"
 CONFIG_TARGET_ARCH_PACKAGES="mipsel_24kc"
-CONFIG_TARGET_PROFILE="DEVICE_xiaomi_xiaomi_miwifi-mini"
 CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -mno-branch-likely -mips32r2 -mtune=24kc"
+CONFIG_TARGET_PROFILE="DEVICE_xiaomi_xiaomi_miwifi-r3"
 CONFIG_CPU_TYPE="24kc"
 CONFIG_LINUX_5_15=y
 CONFIG_DEFAULT_base-files=y

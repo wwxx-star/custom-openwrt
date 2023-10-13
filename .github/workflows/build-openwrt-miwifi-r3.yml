@@ -23,7 +23,7 @@ env:
   REPO_URL: https://github.com/InBomBi/openwrt-build.git
   REPO_BRANCH: main
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: .config-miwifi-r3
+  CONFIG_FILE: .config-mir3
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   #by default used .config for build from repo
