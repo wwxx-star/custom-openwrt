@@ -1,12 +1,17 @@
 **English** | [中文](https://p3terx.com/archives/build-openwrt-with-github-actions.html)
-
 # Actions-OpenWrt
 
 [![LICENSE](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square&label=LICENSE)](https://github.com/P3TERX/Actions-OpenWrt/blob/master/LICENSE)
 ![GitHub Stars](https://img.shields.io/github/stars/P3TERX/Actions-OpenWrt.svg?style=flat-square&label=Stars&logo=github)
 ![GitHub Forks](https://img.shields.io/github/forks/P3TERX/Actions-OpenWrt.svg?style=flat-square&label=Forks&logo=github)
 
-A template for building OpenWrt with GitHub Actions
+- A template for building OpenWrt with GitHub Actions
+- I am using this action to build those are device below:
+  + TP-Link wr841 (with moding 16Mb Flash, 64M Ram)
+  + Xiaomi miwifi R3 (add some patch, add target device...) -add batman adv mesh 2023
+  + Xiaomi miwifi mini - add batman adv mesh 2023, camera usb...
+  + Xiaomi miwifi r3 pro - add openclash packages, batmanadv mesh...
+  + Xiaomi miwfi R3G
 
 ## Usage
 
@@ -27,6 +32,7 @@ A template for building OpenWrt with GitHub Actions
 - [Microsoft Azure](https://azure.microsoft.com)
 - [GitHub Actions](https://github.com/features/actions)
 - [OpenWrt](https://github.com/openwrt/openwrt)
+- [x-wrt](https://github.com/x-wrt/x-wrt)
 - [Lean's OpenWrt](https://github.com/coolsnowwolf/lede)
 - [tmate](https://github.com/tmate-io/tmate)
 - [mxschmitt/action-tmate](https://github.com/mxschmitt/action-tmate)
