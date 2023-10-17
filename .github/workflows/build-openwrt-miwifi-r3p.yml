@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build Xiaomi 3P openwrt
+name: Build Xiaomi R3P openwrt
 
 on:
   repository_dispatch:
