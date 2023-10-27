@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build Xiaomi R3P openwrt
+name: build xiaomi miwifi r3p openwrt
 
 on:
   repository_dispatch:
@@ -43,10 +43,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps: 
-      
+
     - name: Checkout
-      uses: actions/checkout@main
-    
+      uses: actions/checkout@v4
+        
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
@@ -66,7 +66,7 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        
+                              
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
@@ -119,7 +119,7 @@ jobs:
       run: |
         cd openwrt
         make defconfig
-        make download -j8
+        make download -j5
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
@@ -132,7 +132,7 @@ jobs:
         [ -s ARCH_NAME ] && echo "ARCH_NAME=$(cat ARCH_NAME)" >> $GITHUB_ENV
         [ -s CPU_NAME ] && echo "CPU_NAME=$(cat CPU_NAME)" >> $GITHUB_ENV
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=$(cat DEVICE_NAME)" >> $GITHUB_ENV
-        echo -e "Arch: $(cat ARCH_NAME)\nCPU: $(cat CPU_NAME)\nDevice: $(cat DEVICE_NAME)"        
+        echo -e "Arch: $(cat ARCH_NAME)\nCPU: $(cat CPU_NAME)\nDevice: $(cat DEVICE_NAME)"
 
     - name: Compile the firmware
       id: compile
@@ -194,7 +194,7 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
+        echo "release_tag=$DEVICE_NAME" >> $GITHUB_OUTPUT
         touch release.txt
         echo "Branch: $REPO_BRANCH" >> release.txt
         echo "Date: $(date +"%Y-%m-%d_%H:%M")" >> release.txt
