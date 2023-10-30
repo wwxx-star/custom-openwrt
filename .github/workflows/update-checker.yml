@@ -17,10 +17,10 @@ env:
 
 on:
   workflow_dispatch:
-    branches:
-      - main  
+  branches:
+    - main  
   schedule:
-    - cron: 0 11 * * 1
+    - cron: 0 12 * * 1
 
 jobs:
   check:
