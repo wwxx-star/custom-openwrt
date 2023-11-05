@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Xiaomi Mi-R3G openwrt
+name: Xiaomi Mi-R3Gv2 openwrt
 
 on:
   repository_dispatch:
@@ -23,7 +23,7 @@ env:
   REPO_URL: https://github.com/InBomBi/openwrt-build.git
   REPO_BRANCH: main
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: .config-mir3g
+  CONFIG_FILE: .config-mir3gv2
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   #by default used .config for build from repo
