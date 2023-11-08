@@ -45,7 +45,7 @@ jobs:
     steps: 
       
     - name: Checkout
-      uses: actions/checkout@main
+      uses: actions/checkout@v4.1.1
     
     - name: Initialization environment
       env:
