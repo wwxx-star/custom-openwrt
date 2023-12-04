@@ -19,4 +19,4 @@
 #echo 'src-git batman https://git.open-mesh.org/openwrt-feed-devel.git' >>feeds.conf.default
 echo 'src-git openclash https://github.com/vernesong/OpenClash.git' >>feeds.conf.default
 echo 'src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git;main' >>feeds.conf.default
-echo src-git 'passwall_2 https://github.com/xiaorouji/openwrt-passwall2.git;main' >>feeds.conf.default
+echo 'src-git passwall_2 https://github.com/xiaorouji/openwrt-passwall2.git;main' >>feeds.conf.default
