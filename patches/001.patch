@@ -1,20 +1,4 @@
-From 8e1f910d6685eab67ad75603a3f20128a547fc26 Mon Sep 17 00:00:00 2001
-From: inbombi <baonq@live.com>
-Date: Mon, 4 Dec 2023 10:47:50 +0700
-Subject: [PATCH 1/2] Add xiaomi miwifi R3, add tp-link wr841v9 with 16M Flash
- and 64M Ram modding
 
----
- package/boot/uboot-envtools/files/ramips      |  3 ++-
- .../ath79/dts/qca9533_tplink_tl-wr841.dtsi    |  6 +++---
- target/linux/ath79/image/tiny-tp-link.mk      |  2 +-
- target/linux/ramips/image/mt7620.mk           | 17 ++++++++++++++++
- .../mt7620/base-files/etc/board.d/02_network  |  8 ++++++++
- .../mt7620/base-files/lib/upgrade/platform.sh |  7 +++++++
- target/linux/ramips/mt7620/config-5.15        | 20 +++++++++++++++++++
- target/linux/ramips/mt7620/target.mk          |  2 +-
- target/linux/ramips/mt76x8/config-5.15        |  1 +
- 9 files changed, 60 insertions(+), 6 deletions(-)
 
 diff --git a/package/boot/uboot-envtools/files/ramips b/package/boot/uboot-envtools/files/ramips
 index 60ac40ff36..cb87d048ff 100644
@@ -238,24 +222,10 @@ index 6d6759a7c5..6cde7fe53d 100644
  CONFIG_MTD_PHYSMAP=y
  CONFIG_MTD_SPI_NOR=y
  CONFIG_MTD_SPI_NOR_USE_VARIABLE_ERASE=y
- 
+-- 
 2.34.1
 
-From 91cbba528a06ca04ae823a93992780956c67c249 Mon Sep 17 00:00:00 2001
-From: inbombi <baonq@live.com>
-Date: Mon, 4 Dec 2023 11:00:32 +0700
-Subject: [PATCH 2/2] Add xiaomi nand driver
 
----
- .../ramips/dts/mt7620a_xiaomi_miwifi-r3.dts   |  169 ++
- .../files/drivers/mtd/map/ralink_nand.c       | 2095 +++++++++++++++++
- .../files/drivers/mtd/map/ralink_nand.h       |  240 ++
- ...38-mtd-ralink-add-mt7620-nand-driver.patch |   18 +
- 4 files changed, 2522 insertions(+)
- create mode 100644 target/linux/ramips/dts/mt7620a_xiaomi_miwifi-r3.dts
- create mode 100644 target/linux/ramips/files/drivers/mtd/map/ralink_nand.c
- create mode 100644 target/linux/ramips/files/drivers/mtd/map/ralink_nand.h
- create mode 100644 target/linux/ramips/patches-5.15/0038-mtd-ralink-add-mt7620-nand-driver.patch
 
 diff --git a/target/linux/ramips/dts/mt7620a_xiaomi_miwifi-r3.dts b/target/linux/ramips/dts/mt7620a_xiaomi_miwifi-r3.dts
 new file mode 100644
@@ -2792,7 +2762,7 @@ index 0000000000..0a5c3b7c35
 ++++ b/drivers/mtd/maps/Kconfig
 +@@ -400,4 +400,8 @@ config MTD_PISMO
 +
-+ When built as a module, it will be called pismo.ko
++	When built as a module, it will be called pismo.ko
 +
 ++config MTD_NAND_MT7620
 ++	tristate "Support for NAND on Mediatek MT7620"
@@ -2807,5 +2777,6 @@ index 0000000000..0a5c3b7c35
 + obj-$(CONFIG_MTD_LANTIQ)	+= lantiq-flash.o
 ++obj-$(CONFIG_MTD_NAND_MT7620)	+= ralink_nand.o
 \ No newline at end of file
-
+-- 
 2.34.1
+
