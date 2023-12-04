@@ -238,9 +238,8 @@ index 6d6759a7c5..6cde7fe53d 100644
  CONFIG_MTD_PHYSMAP=y
  CONFIG_MTD_SPI_NOR=y
  CONFIG_MTD_SPI_NOR_USE_VARIABLE_ERASE=y
--- 
+ 
 2.34.1
-
 
 From 91cbba528a06ca04ae823a93992780956c67c249 Mon Sep 17 00:00:00 2001
 From: inbombi <baonq@live.com>
@@ -2808,6 +2807,5 @@ index 0000000000..0a5c3b7c35
 + obj-$(CONFIG_MTD_LANTIQ)	+= lantiq-flash.o
 ++obj-$(CONFIG_MTD_NAND_MT7620)	+= ralink_nand.o
 \ No newline at end of file
--- 
-2.34.1
 
+2.34.1
