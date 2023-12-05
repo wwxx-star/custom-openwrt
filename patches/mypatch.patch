@@ -2622,6 +2622,8 @@ index cbfb8a1d86..75b5689cd5 100644
 +	xiaomi,miwidi-r3)
 +		ucidef_add_switch "switch0" \
 +			"1:lan" "4:lan" "0:wan" "6@eth0"
++
+   ;;
  	zbtlink,zbt-we1026-5g-16m)
  		ucidef_add_switch "switch0" \
  			"0:lan" "6t@eth0"
