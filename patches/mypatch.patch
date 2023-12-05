@@ -2751,7 +2751,7 @@ index 0000000000..53851af318
 ++++ b/drivers/mtd/maps/Kconfig
 +@@ -400,4 +400,8 @@ config MTD_PISMO
 + 
-+ 	  When built as a module, it will be called pismo.ko
++	When built as a module, it will be called pismo.ko
 + 
 ++config MTD_NAND_MT7620
 ++	tristate "Support for NAND on Mediatek MT7620"
