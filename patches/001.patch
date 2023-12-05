@@ -1,5 +1,3 @@
-
-
 diff --git a/package/boot/uboot-envtools/files/ramips b/package/boot/uboot-envtools/files/ramips
 index 60ac40ff36..cb87d048ff 100644
 --- a/package/boot/uboot-envtools/files/ramips
@@ -224,8 +222,6 @@ index 6d6759a7c5..6cde7fe53d 100644
  CONFIG_MTD_SPI_NOR_USE_VARIABLE_ERASE=y
 -- 
 2.34.1
-
-
 
 diff --git a/target/linux/ramips/dts/mt7620a_xiaomi_miwifi-r3.dts b/target/linux/ramips/dts/mt7620a_xiaomi_miwifi-r3.dts
 new file mode 100644
@@ -2773,10 +2769,9 @@ index 0000000000..0a5c3b7c35
 ++++ b/drivers/mtd/maps/Makefile
 +@@ -45,3 +45,4 @@ obj-$(CONFIG_MTD_INTEL_VR_NOR)	+= intel_
 + obj-$(CONFIG_MTD_RBTX4939)	+= rbtx4939-flash.o
-+ obj-$(CONFIG_MTD_VMU)		+= vmu-flash.o
++ obj-$(CONFIG_MTD_VMU) += vmu-flash.o
 + obj-$(CONFIG_MTD_LANTIQ)	+= lantiq-flash.o
 ++obj-$(CONFIG_MTD_NAND_MT7620)	+= ralink_nand.o
 \ No newline at end of file
 -- 
 2.34.1
-
