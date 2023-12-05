@@ -2605,7 +2605,7 @@ index 883aacabe0..f5c1677496 100644
 +  DEVICE_VENDOR := Xiaomi
 +  DEVICE_MODEL := Mi Router R3
 +  DEVICE_PACKAGES := kmod-mt76x2 kmod-usb2 kmod-usb-ohci uboot-envtools
-+			  endef
++		endef
 +  TARGET_DEVICES += xiaomi_miwifi-r3
 +			  
  define Device/youku_x2
