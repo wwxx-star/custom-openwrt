@@ -2584,7 +2584,7 @@ index 0000000000..b94dc09479
 +
 +#endif
 diff --git a/target/linux/ramips/image/mt7620.mk b/target/linux/ramips/image/mt7620.mk
-index 883aacabe0..f5c1677496 100644
+index 883aacabe0..404f348b06 100644
 --- a/target/linux/ramips/image/mt7620.mk
 +++ b/target/linux/ramips/image/mt7620.mk
 @@ -1349,6 +1349,23 @@ define Device/xiaomi_miwifi-mini
@@ -2612,20 +2612,21 @@ index 883aacabe0..f5c1677496 100644
    SOC := mt7620a
    IMAGE_SIZE := 16064k
 diff --git a/target/linux/ramips/mt7620/base-files/etc/board.d/02_network b/target/linux/ramips/mt7620/base-files/etc/board.d/02_network
-index cbfb8a1d86..75b5689cd5 100644
+index cbfb8a1d86..20d480d1b5 100644
 --- a/target/linux/ramips/mt7620/base-files/etc/board.d/02_network
 +++ b/target/linux/ramips/mt7620/base-files/etc/board.d/02_network
-@@ -257,6 +257,9 @@ ramips_setup_interfaces()
+@@ -257,6 +257,10 @@ ramips_setup_interfaces()
  		ucidef_add_switch "switch0" \
  			"0:lan" "1:lan" "4:wan" "6@eth0"
  		;;
-+	xiaomi,miwidi-r3)
++	xiaomi,miwifi-r3)
 +		ucidef_add_switch "switch0" \
 +			"1:lan" "4:lan" "0:wan" "6@eth0"
++		;;
  	zbtlink,zbt-we1026-5g-16m)
  		ucidef_add_switch "switch0" \
  			"0:lan" "6t@eth0"
-@@ -415,6 +418,10 @@ ramips_setup_macs()
+@@ -415,6 +419,10 @@ ramips_setup_macs()
  		wan_mac=$(mtd_get_mac_binary factory 0x2e)
  		label_mac=$(mtd_get_mac_binary factory 0x8004)
  		;;
@@ -2751,7 +2752,7 @@ index 0000000000..53851af318
 ++++ b/drivers/mtd/maps/Kconfig
 +@@ -400,4 +400,8 @@ config MTD_PISMO
 + 
-+	When built as a module, it will be called pismo.ko
++ 	  When built as a module, it will be called pismo.ko
 + 
 ++config MTD_NAND_MT7620
 ++	tristate "Support for NAND on Mediatek MT7620"
