@@ -11,6 +11,12 @@
 name: Build G-Dock 2.0 openwrt
 
 on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
   repository_dispatch:
   workflow_dispatch:
     inputs:
@@ -45,7 +51,21 @@ jobs:
     steps: 
 
     - name: Checkout
-      uses: actions/checkout@main
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run tests
+      run: npm test
+
+    - name: Lint code
+      run: npm run lint
     
     - name: Initialization environment
       env:
@@ -238,4 +258,4 @@ jobs:
           delete_tags: true
         env:
           GITHUB_TOKEN: ${{ secrets.ACTIONS_TRIGGER_PAT }}
-          
+      
