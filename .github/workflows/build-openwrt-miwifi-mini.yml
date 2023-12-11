@@ -236,5 +236,4 @@ jobs:
           keep_latest: 10
           delete_tags: true
         env:
-          GITHUB_TOKEN: ${{ secrets.ACTIONS_TRIGGER_PAT }}
-          
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_TRIGGER_PAT }}     
