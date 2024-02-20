@@ -48,7 +48,8 @@ jobs:
       if: steps.cacheHash.outputs.cache-hit != 'true'
       uses: peter-evans/repository-dispatch@v3
       with:
-        token: ${{ secrets.ACTIONS_TRIGGER_PAT }}
+        token: ${{ secrets.PAT }}
+        repository: InBomBi/custom-openwrt
         event-type: Source Code Update
 
     - name: Delete workflow runs
