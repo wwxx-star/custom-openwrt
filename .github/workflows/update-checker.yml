@@ -49,7 +49,6 @@ jobs:
       uses: peter-evans/repository-dispatch@v3
       with:
         token: ${{ secrets.PAT }}
-        repository: InBomBi/custom-openwrt
         event-type: Source Code Update
 
     - name: Delete workflow runs
