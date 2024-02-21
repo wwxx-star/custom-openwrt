@@ -2732,6 +2732,81 @@ index 6dd7fc7cef..17750b661b 100755
  	*)
  		default_do_upgrade "$1"
  		;;
+   
+diff --git a/target/linux/ramips/mt7620/config-6.1 b/target/linux/ramips/mt7620/config-6.1
+index 641b93e582..c91962b0f1 100644
+--- a/target/linux/ramips/mt7620/config-6.1
++++ b/target/linux/ramips/mt7620/config-6.1
+@@ -33,8 +33,12 @@ CONFIG_CPU_R4K_CACHE_TLB=y
+ CONFIG_CPU_SUPPORTS_32BIT_KERNEL=y
+ CONFIG_CPU_SUPPORTS_HIGHMEM=y
+ CONFIG_CPU_SUPPORTS_MSA=y
++CONFIG_CRC16=y
++CONFIG_CRYPTO_DEFLATE=y
++CONFIG_CRYPTO_HASH_INFO=y
+ CONFIG_CRYPTO_LIB_BLAKE2S_GENERIC=y
+ CONFIG_CRYPTO_LIB_POLY1305_RSIZE=2
++CONFIG_CRYPTO_LZO=y
+ CONFIG_CRYPTO_RNG2=y
+ CONFIG_CSRC_R4K=y
+ CONFIG_DEBUG_PINCTRL=y
+@@ -91,6 +95,8 @@ CONFIG_IRQ_MIPS_CPU=y
+ CONFIG_IRQ_WORK=y
+ CONFIG_LIBFDT=y
+ CONFIG_LOCK_DEBUGGING_SUPPORT=y
++CONFIG_LZO_COMPRESS=y
++CONFIG_LZO_DECOMPRESS=y
+ CONFIG_MARVELL_PHY=y
+ CONFIG_MDIO_BUS=y
+ CONFIG_MDIO_DEVICE=y
+@@ -115,6 +121,7 @@ CONFIG_MODULES_USE_ELF_REL=y
+ # CONFIG_MT7621_WDT is not set
+ # CONFIG_MTD_CFI_INTELEXT is not set
+ CONFIG_MTD_CMDLINE_PARTS=y
++CONFIG_MTD_NAND_MT7620=y
+ # CONFIG_MTD_PARSER_TPLINK_SAFELOADER is not set
+ CONFIG_MTD_PHYSMAP=y
+ CONFIG_MTD_SPI_NOR=y
+@@ -123,6 +130,10 @@ CONFIG_MTD_SPLIT_JIMAGE_FW=y
+ CONFIG_MTD_SPLIT_SEAMA_FW=y
+ CONFIG_MTD_SPLIT_TPLINK_FW=y
+ CONFIG_MTD_SPLIT_UIMAGE_FW=y
++CONFIG_MTD_UBI=y
++CONFIG_MTD_UBI_BEB_LIMIT=20
++CONFIG_MTD_UBI_BLOCK=y
++CONFIG_MTD_UBI_WL_THRESHOLD=4096
+ CONFIG_MTD_VIRT_CONCAT=y
+ CONFIG_NEED_DMA_MAP_STATE=y
+ CONFIG_NEED_PER_CPU_KM=y
+@@ -162,12 +173,16 @@ CONFIG_PTP_1588_CLOCK_OPTIONAL=y
+ CONFIG_RALINK=y
+ CONFIG_RALINK_WDT=y
+ CONFIG_RATIONAL=y
++CONFIG_REED_SOLOMON=y
++CONFIG_REED_SOLOMON_DEC8=y
++CONFIG_REED_SOLOMON_ENC8=y
+ CONFIG_REGMAP=y
+ CONFIG_REGMAP_MMIO=y
+ CONFIG_RESET_CONTROLLER=y
+ CONFIG_SERIAL_8250_RT288X=y
+ CONFIG_SERIAL_MCTRL_GPIO=y
+ CONFIG_SERIAL_OF_PLATFORM=y
++CONFIG_SGL_ALLOC=y
+ CONFIG_SOC_MT7620=y
+ # CONFIG_SOC_MT7621 is not set
+ # CONFIG_SOC_RT288X is not set
+@@ -196,6 +211,11 @@ CONFIG_TICK_CPU_ACCOUNTING=y
+ CONFIG_TIMER_OF=y
+ CONFIG_TIMER_PROBE=y
+ CONFIG_TINY_SRCU=y
++CONFIG_UBIFS_FS=y
++CONFIG_UBIFS_FS_ADVANCED_COMPR=y
++# CONFIG_UBIFS_FS_ZSTD is not set
+ CONFIG_USB_SUPPORT=y
+ CONFIG_USE_OF=y
+ CONFIG_WATCHDOG_CORE=y
++CONFIG_ZLIB_DEFLATE=y
++CONFIG_ZLIB_INFLATE=y
 
 diff --git a/target/linux/ramips/mt7620/target.mk b/target/linux/ramips/mt7620/target.mk
 index 34488f95af..1d1d281a0f 100644
@@ -2764,11 +2839,11 @@ index 2b789342ab..c27eef6b46 100755
  		;;
  	iodata,wn-ax1167gr2|\
 
-diff --git a/target/linux/ramips/patches-5.15/0038-mtd-ralink-add-mt7620-nand-driver.patch b/target/linux/ramips/patches-5.15/0038-mtd-ralink-add-mt7620-nand-driver.patch
+diff --git a/target/linux/ramips/patches-6.1/0038-mtd-ralink-add-mt7620-nand-driver.patch b/target/linux/ramips/patches-6.1/0038-mtd-ralink-add-mt7620-nand-driver.patch
 new file mode 100644
 index 0000000000..53851af318
 --- /dev/null
-+++ b/target/linux/ramips/patches-5.15/0038-mtd-ralink-add-mt7620-nand-driver.patch
++++ b/target/linux/ramips/patches-6.1/0038-mtd-ralink-add-mt7620-nand-driver.patch
 @@ -0,0 +1,18 @@
 +--- a/drivers/mtd/maps/Kconfig
 ++++ b/drivers/mtd/maps/Kconfig
