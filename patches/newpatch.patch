@@ -2764,11 +2764,11 @@ index 2b789342ab..c27eef6b46 100755
  		;;
  	iodata,wn-ax1167gr2|\
 
-diff --git a/target/linux/ramips/patches-5.1/0038-mtd-ralink-add-mt7620-nand-driver.patch b/target/linux/ramips/patches-5.1/0038-mtd-ralink-add-mt7620-nand-driver.patch
+diff --git a/target/linux/ramips/patches-5.15/0038-mtd-ralink-add-mt7620-nand-driver.patch b/target/linux/ramips/patches-5.15/0038-mtd-ralink-add-mt7620-nand-driver.patch
 new file mode 100644
 index 0000000000..53851af318
 --- /dev/null
-+++ b/target/linux/ramips/patches-5.1/0038-mtd-ralink-add-mt7620-nand-driver.patch
++++ b/target/linux/ramips/patches-5.15/0038-mtd-ralink-add-mt7620-nand-driver.patch
 @@ -0,0 +1,18 @@
 +--- a/drivers/mtd/maps/Kconfig
 ++++ b/drivers/mtd/maps/Kconfig
