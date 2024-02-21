@@ -2839,7 +2839,7 @@ diff --git a/target/linux/ramips/patches-5.15/0038-mtd-ralink-add-mt7620-nand-dr
 new file mode 100644
 index 0000000000..53851af318
 --- /dev/null
-+++ b/target/linux/ramips/patches-5.15/0038-mtd-ralink-add-mt7620-nand-driver.patch
++++ b/target/linux/ramips/patches-6.1/0038-mtd-ralink-add-mt7620-nand-driver.patch
 @@ -0,0 +1,18 @@
 +--- a/drivers/mtd/maps/Kconfig
 ++++ b/drivers/mtd/maps/Kconfig
@@ -2859,3 +2859,29 @@ index 0000000000..53851af318
 + obj-$(CONFIG_MTD_VMU)		+= vmu-flash.o
 + obj-$(CONFIG_MTD_LANTIQ)	+= lantiq-flash.o
 ++obj-$(CONFIG_MTD_NAND_MT7620)	+= ralink_nand.o
+diff --git a/target/linux/ramips/dts/mt7620a.dtsi b/target/linux/ramips/dts/mt7620a.dtsi
+index 0fa503e7a2..b5ea8c3bd0 100644
+--- a/target/linux/ramips/dts/mt7620a.dtsi
++++ b/target/linux/ramips/dts/mt7620a.dtsi
+@@ -273,7 +273,7 @@
+                };
+
+                systick: systick@d00 {
+-                       compatible = "ralink,mt7620a-systick", "ralink,cevt-systick";
++                       compatible = "ralink,cevt-systick";
+                        reg = <0xd00 0x10>;
+
+                        interrupt-parent = <&cpuintc>;
+diff --git a/target/linux/ramips/dts/mt7620n.dtsi b/target/linux/ramips/dts/mt7620n.dtsi
+index 4f07c6bc4b..d7f232126c 100644
+--- a/target/linux/ramips/dts/mt7620n.dtsi
++++ b/target/linux/ramips/dts/mt7620n.dtsi
+@@ -235,7 +235,7 @@
+                };
+
+                systick: systick@d00 {
+-                       compatible = "ralink,mt7620a-systick", "ralink,cevt-systick";
++                       compatible = "ralink,cevt-systick";
+                        reg = <0xd00 0x10>;
+
+                        interrupt-parent = <&cpuintc>;
