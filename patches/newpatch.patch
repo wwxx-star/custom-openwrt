@@ -2863,7 +2863,7 @@ diff --git a/target/linux/ramips/dts/mt7620a.dtsi b/target/linux/ramips/dts/mt76
 index 0fa503e7a2..b5ea8c3bd0 100644
 --- a/target/linux/ramips/dts/mt7620a.dtsi
 +++ b/target/linux/ramips/dts/mt7620a.dtsi
-@@ -273,7 +273,7 @@
+@@ -276,7 +276,7 @@
                 };
 
                 systick: systick@d00 {
@@ -2876,7 +2876,7 @@ diff --git a/target/linux/ramips/dts/mt7620n.dtsi b/target/linux/ramips/dts/mt76
 index 4f07c6bc4b..d7f232126c 100644
 --- a/target/linux/ramips/dts/mt7620n.dtsi
 +++ b/target/linux/ramips/dts/mt7620n.dtsi
-@@ -235,7 +235,7 @@
+@@ -237,7 +237,7 @@
                 };
 
                 systick: systick@d00 {
