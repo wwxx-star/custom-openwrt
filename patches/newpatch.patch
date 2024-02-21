@@ -2733,10 +2733,10 @@ index 6dd7fc7cef..17750b661b 100755
  		default_do_upgrade "$1"
  		;;
    
-diff --git a/target/linux/ramips/mt7620/config-6.1 b/target/linux/ramips/mt7620/config-6.1
+diff --git a/target/linux/ramips/mt7620/config-5.15 b/target/linux/ramips/mt7620/config-5.15
 index 641b93e582..c91962b0f1 100644
---- a/target/linux/ramips/mt7620/config-6.1
-+++ b/target/linux/ramips/mt7620/config-6.1
+--- a/target/linux/ramips/mt7620/config-5.15
++++ b/target/linux/ramips/mt7620/config-5.15
 @@ -33,8 +33,12 @@ CONFIG_CPU_R4K_CACHE_TLB=y
  CONFIG_CPU_SUPPORTS_32BIT_KERNEL=y
  CONFIG_CPU_SUPPORTS_HIGHMEM=y
@@ -2839,11 +2839,11 @@ index 2b789342ab..c27eef6b46 100755
  		;;
  	iodata,wn-ax1167gr2|\
 
-diff --git a/target/linux/ramips/patches-6.1/0038-mtd-ralink-add-mt7620-nand-driver.patch b/target/linux/ramips/patches-6.1/0038-mtd-ralink-add-mt7620-nand-driver.patch
+diff --git a/target/linux/ramips/patches-5.15/0038-mtd-ralink-add-mt7620-nand-driver.patch b/target/linux/ramips/patches-5.15/0038-mtd-ralink-add-mt7620-nand-driver.patch
 new file mode 100644
 index 0000000000..53851af318
 --- /dev/null
-+++ b/target/linux/ramips/patches-6.1/0038-mtd-ralink-add-mt7620-nand-driver.patch
++++ b/target/linux/ramips/patches-5.15/0038-mtd-ralink-add-mt7620-nand-driver.patch
 @@ -0,0 +1,18 @@
 +--- a/drivers/mtd/maps/Kconfig
 ++++ b/drivers/mtd/maps/Kconfig
