@@ -2863,7 +2863,7 @@ diff --git a/target/linux/ramips/dts/mt7620a.dtsi b/target/linux/ramips/dts/mt76
 index 0fa503e7a2..b5ea8c3bd0 100644
 --- a/target/linux/ramips/dts/mt7620a.dtsi
 +++ b/target/linux/ramips/dts/mt7620a.dtsi
-@@ -276,7 +276,7 @@
+@@ -273,7 +273,7 @@
                 };
 
                 systick: systick@d00 {
@@ -2876,8 +2876,15 @@ diff --git a/target/linux/ramips/dts/mt7620n.dtsi b/target/linux/ramips/dts/mt76
 index 4f07c6bc4b..d7f232126c 100644
 --- a/target/linux/ramips/dts/mt7620n.dtsi
 +++ b/target/linux/ramips/dts/mt7620n.dtsi
-@@ -237,7 +237,7 @@
+@@ -235,7 +235,7 @@
                 };
+
+                systick: systick@d00 {
+-                       compatible = "ralink,mt7620a-systick", "ralink,cevt-systick";
++                       compatible = "ralink,cevt-systick";
+                        reg = <0xd00 0x10>;
+
+                        interrupt-parent = <&cpuintc>;
 
                 systick: systick@d00 {
 -                       compatible = "ralink,mt7620a-systick", "ralink,cevt-systick";
