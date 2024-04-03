@@ -65,11 +65,11 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        git clone -b $REPO_BRANCH $REPO_URL openwrt
+        git clone --depth 1 -b v23.05.2 $REPO_URL openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
     
-    - name: Change to v23.05.2
-      run : cd openwrt && git fetch --tags && git tag -l && git checkout v23.05.2
+#    - name: Change to v23.05.2
+#      run : cd openwrt && git fetch --tags && git tag -l && git checkout v23.05.2
         
     - name: Load custom feeds
       run: |
