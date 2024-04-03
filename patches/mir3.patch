@@ -2638,23 +2638,20 @@ index cbfb8a1d86..20d480d1b5 100644
  		label_mac=$(mtd_get_mac_binary factory 0x4)
  		;;
 diff --git a/target/linux/ramips/mt7620/base-files/lib/upgrade/platform.sh b/target/linux/ramips/mt7620/base-files/lib/upgrade/platform.sh
-index 6dd7fc7cef..259b4407e4 100755
+index 9f71dc918e..c2bccf7cbf 100755
 --- a/target/linux/ramips/mt7620/base-files/lib/upgrade/platform.sh
 +++ b/target/linux/ramips/mt7620/base-files/lib/upgrade/platform.sh
-@@ -38,6 +38,13 @@ platform_do_upgrade() {
- 				of=/dev/mtdblock$idx
- 		default_do_upgrade "$1"
- 		;;
-+	xiaomi,miwifi-r3)
-+		# this make it compatible with breed
-+		dd if=/dev/mtd0 bs=64 count=1 2>/dev/null | grep -qi breed && CI_KERNPART_EXT="kernel_stock"
-+		dd if=/dev/mtd7 bs=64 count=1 2>/dev/null | grep -o MIPS.*Linux | grep -qi X-WRT && CI_KERNPART_EXT="kernel_stock"
-+		dd if=/dev/mtd7 bs=64 count=1 2>/dev/null | grep -o MIPS.*Linux | grep -qi NATCAP && CI_KERNPART_EXT="kernel0_rsvd"
-+		nand_do_upgrade "$1"
-+		;;
- 	*)
- 		default_do_upgrade "$1"
- 		;;
+@@ -30,8 +30,17 @@ platform_do_upgrade() {
+                }
+                default_do_upgrade "$1"
+                ;;
+       xiaomi,miwifi-r3)
+               # this make it compatible with breed
+               dd if=/dev/mtd0 bs=64 count=1 2>/dev/null | grep -qi breed && CI_KERNPART_EXT="kernel_stock"
+               dd if=/dev/mtd7 bs=64 count=1 2>/dev/null | grep -o MIPS.*Linux | grep -qi X-WRT && CI_KERNPART_EXT="kernel_stock"
+               dd if=/dev/mtd7 bs=64 count=1 2>/dev/null | grep -o MIPS.*Linux | grep -qi NATCAP && CI_KERNPART_EXT="kernel0_rsvd"
+               nand_do_upgrade "$1"
+               ;;
 diff --git a/target/linux/ramips/mt7620/config-5.15 b/target/linux/ramips/mt7620/config-5.15
 index 641b93e582..c91962b0f1 100644
 --- a/target/linux/ramips/mt7620/config-5.15
