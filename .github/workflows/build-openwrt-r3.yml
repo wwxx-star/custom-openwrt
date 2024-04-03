@@ -74,7 +74,10 @@ jobs:
         chmod +x $DIY_P1_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
-
+        
+    - name: Change to v23.05.2
+      run : cd openwrt && git fetch --tags && git tag -l && git checkout v23.05.2
+      
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
@@ -146,9 +149,6 @@ jobs:
       id: compile
       run: |
         cd openwrt
-        git fetch --tags
-        git tag -l
-        git checkout v23.05.2
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j1 || make -j1 V=s
         echo "status=success" >> $GITHUB_OUTPUT
