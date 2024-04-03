@@ -2645,13 +2645,14 @@ index 9f71dc918e..c2bccf7cbf 100755
                 }
                 default_do_upgrade "$1"
                 ;;
-       xiaomi,miwifi-r3)
-               # this make it compatible with breed
-               dd if=/dev/mtd0 bs=64 count=1 2>/dev/null | grep -qi breed && CI_KERNPART_EXT="kernel_stock"
-               dd if=/dev/mtd7 bs=64 count=1 2>/dev/null | grep -o MIPS.*Linux | grep -qi X-WRT && CI_KERNPART_EXT="kernel_stock"
-               dd if=/dev/mtd7 bs=64 count=1 2>/dev/null | grep -o MIPS.*Linux | grep -qi NATCAP && CI_KERNPART_EXT="kernel0_rsvd"
-               nand_do_upgrade "$1"
-               ;;
++       xiaomi,miwifi-r3)
++               # this make it compatible with breed
++		             dd if=/dev/mtd0 bs=64 count=1 2>/dev/null | grep -qi breed && CI_KERNPART_EXT="kernel_stock"
++		             dd if=/dev/mtd7 bs=64 count=1 2>/dev/null | grep -o MIPS.*Linux | grep -qi X-WRT && CI_KERNPART_EXT="kernel_stock"
++		             dd if=/dev/mtd7 bs=64 count=1 2>/dev/null | grep -o MIPS.*Linux | grep -qi NATCAP && CI_KERNPART_EXT="kernel0_rsvd"
++		             dd if=/dev/mtd0 2>/dev/null | grep -qi pb-boot && CI_KERNPART_EXT="kernel_stock"
++		             nand_do_upgrade "$1"
++		             ;;
 diff --git a/target/linux/ramips/mt7620/config-5.15 b/target/linux/ramips/mt7620/config-5.15
 index 641b93e582..c91962b0f1 100644
 --- a/target/linux/ramips/mt7620/config-5.15
