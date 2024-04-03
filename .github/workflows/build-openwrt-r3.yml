@@ -65,7 +65,7 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        git clone --depth 1 -b v23.05.2 $REPO_URL openwrt
+        git clone --depth 1 --branch v23.05.2 $REPO_URL openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
     
 #    - name: Change to v23.05.2
