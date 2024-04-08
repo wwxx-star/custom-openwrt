@@ -8,7 +8,7 @@
 - A template for building OpenWrt with GitHub Actions
 - I am using this action to build those are device below:
   + TP-Link wr841 (with moding 16Mb Flash, 64M Ram)
-  + Xiaomi miwifi R3 (add some patch, add target device...) -add batman adv mesh 2023
+  + Xiaomi miwifi R3 buil from x-wrt git (add some patch, add target device...) -add batman adv mesh 2023
   + Xiaomi miwifi mini - add batman adv mesh 2023, camera usb...
   + Xiaomi miwifi r3 pro - add openclash packages, batmanadv mesh...
   + Xiaomi miwfi R3G
