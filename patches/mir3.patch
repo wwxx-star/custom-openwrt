@@ -2655,18 +2655,19 @@ index 9f71dc918e..c2bccf7cbf 100755
 +		             ;;
 
 diff --git a/target/linux/ramips/mt7620/target.mk b/target/linux/ramips/mt7620/target.mk
-#index 34488f95af..1d1d281a0f 100644
+index 34488f95af..1d1d281a0f 100644
 --- a/target/linux/ramips/mt7620/target.mk
 +++ b/target/linux/ramips/mt7620/target.mk
 @@ -4,7 +4,7 @@
- 
+
  SUBTARGET:=mt7620
  BOARDNAME:=MT7620 based boards
 -FEATURES+=usb ramdisk
 +FEATURES+=usb nand ramdisk
  CPU_TYPE:=24kc
- 
+
  DEFAULT_PACKAGES += kmod-rt2800-soc wpad-basic-mbedtls swconfig
+ 
 diff --git a/target/linux/ramips/patches-6.1/0038-mtd-ralink-add-mt7620-nand-driver.patch b/target/linux/ramips/patches-6.1/0038-mtd-ralink-add-mt7620-nand-driver.patch
 new file mode 100644
 #index 0000000000..53851af318
