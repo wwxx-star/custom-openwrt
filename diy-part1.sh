@@ -15,14 +15,14 @@
 
 # Add a feed source
 #echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
-# echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
+echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 #echo 'src-git batman https://git.open-mesh.org/openwrt-feed-devel.git' >>feeds.conf.default
-# echo 'src-git openclash https://github.com/vernesong/OpenClash.git' >>feeds.conf.default
-# echo 'src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git;main' >>feeds.conf.default
-# echo 'src-git passwall_2 https://github.com/xiaorouji/openwrt-passwall2.git;main' >>feeds.conf.default
+echo 'src-git openclash https://github.com/vernesong/OpenClash.git' >>feeds.conf.default
+echo 'src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git;main' >>feeds.conf.default
+echo 'src-git passwall_2 https://github.com/xiaorouji/openwrt-passwall2.git;main' >>feeds.conf.default
 
 # rm -rf feeds/packages/net/v2ray-geodata
 # git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 # git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
-echo 'src-git NueXini_Packages https://github.com/NueXini/NueXini_Packages.git' >>feeds.conf.default
+#echo 'src-git NueXini_Packages https://github.com/NueXini/NueXini_Packages.git' >>feeds.conf.default
  
