@@ -10,8 +10,8 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
-git clone https://github.com/xiaoxiao29/luci-app-adguardhome.git  package/luci-app-adguardhome
-./scripts/feeds update -a && ./scripts/feeds install -a
+# git clone https://github.com/xiaoxiao29/luci-app-adguardhome.git  package/luci-app-adguardhome
+# ./scripts/feeds update -a && ./scripts/feeds install -a
 
 
 # Modify default IP
