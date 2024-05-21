@@ -12,11 +12,11 @@
 
 #rm -rf feeds/packages/net/v2ray-geodata
 
-git clone https://github.com/sbwml/luci-app-mosdns -b v4 package/mosdns
+#git clone https://github.com/sbwml/luci-app-mosdns -b v4 package/mosdns
 #git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
-git clone https://github.com/xiaoxiao29/luci-app-adguardhome.git  package/luci-app-adguardhome
- ./scripts/feeds update -a && ./scripts/feeds install -a
+#git clone https://github.com/xiaoxiao29/luci-app-adguardhome.git  package/luci-app-adguardhome
+ #./scripts/feeds update -a && ./scripts/feeds install -a
 
 
 # Modify default IP
